@@ -30,10 +30,16 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header>
-          <nav className="flex gap-6 p-4">
-            <Link href="/">Inicio</Link>
-            <Link href="/reports">Reportes</Link>
+        <header className="border-b border-zinc-200">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <Link href="/" className="font-bold">
+              BugNet
+            </Link>
+
+            <div className="flex gap-6">
+              <Link href="/">Inicio</Link>
+              <Link href="/reports">Reportes</Link>
+            </div>
           </nav>
         </header>
 
