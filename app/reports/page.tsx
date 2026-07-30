@@ -1,0 +1,8 @@
+export default function ReportsPage() {
+  return (
+    <main>
+      <h1>Reportes</h1>
+      <p>Acá se mostrarán los reportes guardados.</p>
+    </main>
+  );
+}
