@@ -30,15 +30,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="border-b border-zinc-200">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <Link href="/" className="font-bold">
+        <header className="border-b border-white/10 bg-black/20">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+            <Link href="/" className="text-sm font-bold uppercase tracking-[0.25em] text-pink-400">
               BugNet
             </Link>
 
-            <div className="flex gap-6">
-              <Link href="/">Inicio</Link>
-              <Link href="/reports">Reportes</Link>
+            <div className="flex gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300">
+              <Link href="/" className="hover:text-pink-400">
+                Inicio
+              </Link>
+              <Link href="/reports" className="hover:text-pink-400">
+                Reportes
+              </Link>
             </div>
           </nav>
         </header>
