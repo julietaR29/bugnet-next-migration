@@ -5,7 +5,7 @@ const severityLabel: Record<Severity, string> = {
   low: "Baja",
   medium: "Media",
   high: "Alta",
-  critical: "Cr�tica",
+  critical: "Crítica",
 };
 
 const priorityLabel: Record<Priority, string> = {
@@ -18,10 +18,10 @@ type SectionKey = keyof typeof toneTemplates;
 
 export function generateBugReport(
   values: Partial<BugReportFormValues>,
-  headerVariant: HeaderVariant = 0,
+  headerVariant: HeaderVariant = 0
 ): string {
   const {
-    title = "",
+    title = "Reporte de Error",
     description = "",
     steps = "",
     expectedResult = "",
@@ -34,30 +34,25 @@ export function generateBugReport(
 
   const selectedTone = tone ?? "formal";
 
-  const severityText = severity
-    ? severityLabel[severity]
-    : "No seleccionado";
-
-  const priorityText = priority
-    ? priorityLabel[priority]
-    : "No seleccionado";
+  const severityText = severity ? severityLabel[severity] : "No seleccionado";
+  const priorityText = priority ? priorityLabel[priority] : "No seleccionado";
 
   const sections: Array<{ key: SectionKey; value: string }> = [
     {
       key: "description",
-      value: description,
+      value: description || "Sin descripción provista.",
     },
     {
       key: "steps",
-      value: steps,
+      value: steps || "No se detallaron pasos para reproducir.",
     },
     {
       key: "expectedResult",
-      value: expectedResult,
+      value: expectedResult || "No especificado.",
     },
     {
       key: "actualResult",
-      value: actualResult,
+      value: actualResult || "No especificado.",
     },
     {
       key: "severityPriority",
@@ -65,18 +60,19 @@ export function generateBugReport(
     },
     {
       key: "environment",
-      value: environment,
+      value: environment || "No especificado.",
     },
   ];
 
   const body = sections
     .map(({ key, value }) => {
-      const variants = toneTemplates[key][selectedTone];
+      const variants = toneTemplates[key]?.[selectedTone] ?? toneTemplates[key]["formal"];
       const header = variants[headerVariant] ?? variants[0];
 
       return `${header}\n\n${value}`;
     })
     .join("\n\n");
 
-  return `# ${title}\n\n${body}\n`;
+  const formattedTitle = title?.trim() || "Reporte de Error";
+  return `# ${formattedTitle}\n\n${body}\n`;
 }
