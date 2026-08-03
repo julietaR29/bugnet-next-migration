@@ -37,14 +37,29 @@ Basado en el título y el objetivo del proyecto:
 ## Checklist inicial de validación
 - [x] `BUGFIXES.md` creado.
 - [ ] Revisar la consigna completa del TP3 y contrastarla con la implementación.
-- [ ] Ejecutar `pnpm lint` y documentar resultados.
-- [ ] Ejecutar `pnpm build` y documentar errores o advertencias.
+- [x] Ejecutar `pnpm lint` y documentar resultados.
+- [x] Ejecutar `pnpm build` y documentar errores o advertencias.
 - [ ] Completar `README.md` con instalación, uso y estructura del proyecto.
 - [ ] Identificar los cambios necesarios para cumplir la consigna.
 - [ ] Añadir observaciones finales y conclusiones en este documento.
 
+## Resultados de validación
+### pnpm lint
+- `pnpm lint` se ejecutó correctamente.
+- No se reportaron errores ni advertencias de ESLint.
+- El proyecto cumple con la validación de lint actual.
+
+### pnpm build
+- `pnpm build` compiló exitosamente.
+- El build generó las rutas estáticas `/` y `/reports`.
+- No hubo errores de compilación.
+- Se detectó una advertencia de Next.js sobre el root del workspace:
+  - "Next.js inferred your workspace root, but it may not be correct."
+  - Esto ocurre porque hay múltiples lockfiles en la jerarquía de carpetas (`C:\Users\Usuario\pnpm-lock.yaml` y `pnpm-workspace.yaml`).
+  - Recomendación: establecer `turbopack.root` en `next.config.ts` o eliminar un lockfile no necesario.
+
 ## Próximos pasos
-1. Ejecutar `pnpm lint`.
-2. Ejecutar `pnpm build`.
-3. Actualizar `README.md` con la documentación completa.
-4. Registrar todos los resultados y errores aquí en `BUGFIXES.md`.
+1. Revisar la consigna completa del TP3 y contrastarla con la implementación.
+2. Actualizar `README.md` con la documentación completa.
+3. Registrar hallazgos de arquitectura y estructura de carpetas.
+4. Añadir observaciones finales y conclusiones en este documento.
