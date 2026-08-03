@@ -23,11 +23,24 @@ Este documento recoge la revisión de la arquitectura y la estructura del proyec
 - No hay carpetas para componentes reutilizables, utilidades, servicios o datos.
 
 ## Comparación con la consigna del TP3
-Basado en el título y el objetivo del proyecto:
-- Se espera una aplicación capaz de generar reportes de bugs en formato Markdown.
-- El proyecto actual aún no implementa la lógica de generación de reportes.
-- Falta la interfaz para crear un nuevo reporte y la visualización detallada de reportes.
-- Falta documentación de las rutas, de la forma de ejecutar la aplicación y de las dependencias.
+Basado en el título y el objetivo del proyecto, se espera que BugNet incluya:
+- Generación de reportes de bugs en formato Markdown.
+- Entrada de datos mediante un formulario de reporte.
+- Listado de reportes y vistas detalladas de cada reporte.
+- Persistencia o descarga de reportes (almacenamiento local o backend).
+- Navegación entre creación de reportes y visualización de reportes.
+
+### Estado actual frente a la consigna
+- La aplicación tiene páginas estáticas de `Inicio` y `Reportes`.
+- No existe actualmente la lógica para crear o guardar reportes.
+- No se implementa la exportación o visualización en formato Markdown.
+- No hay rutas dinámicas ni detalles de reportes individuales.
+- La documentación de instalación y ejecución sí está cubierta.
+
+### Conclusión de la comparación
+- La base de la arquitectura es correcta para avanzar.
+- Sin embargo, la funcionalidad principal del TP3 todavía no está implementada.
+- Este proyecto se encuentra en un estado inicial: estructura, navegación y calidad de build son válidos, pero la aplicación no cumple completamente la consigna funcional.
 
 ## Observaciones preliminares sobre calidad
 - El README es el que trae un template de `create-next-app` y requiere actualización completa.
@@ -63,3 +76,14 @@ Basado en el título y el objetivo del proyecto:
 2. Actualizar `README.md` con la documentación completa.
 3. Registrar hallazgos de arquitectura y estructura de carpetas.
 4. Añadir observaciones finales y conclusiones en este documento.
+
+## Checklist final de validación
+- [x] `BUGFIXES.md` creado y actualizado.
+- [x] `README.md` actualizado con descripción, estructura, instalación y scripts.
+- [x] `pnpm lint` ejecutado sin errores.
+- [x] `pnpm build` ejecutado exitosamente.
+- [x] Hallazgos de arquitectura y estructura documentados.
+- [x] Comparación con la consigna del TP3 documentada.
+- [ ] Implementación funcional completa de TP3 (pendiente).
+- [ ] Ajuste de advertencia de root de workspace en `next.config.ts` (recomendado).
+- [ ] Cierre final de observaciones y decisiones de entrega.

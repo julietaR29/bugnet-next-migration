@@ -70,6 +70,13 @@ pnpm lint
 - Falta definir y agregar componentes reutilizables, servicios y gestión de estado para la funcionalidad principal.
 - Es necesario incorporar las rutas y la UI para crear, ver y descargar reportes en Markdown.
 
+## Comparación con la consigna del TP3
+
+- La aplicación actual provee una base estática con páginas de `Inicio` y `Reportes`.
+- No se ha implementado la funcionalidad principal: creación de reportes, guardado de datos ni exportación Markdown.
+- No hay persistencia de reportes ni visualización dinámica de reportes individuales.
+- La documentación de instalación y calidad está completada, pero la funcionalidad del TP3 aún está en estado inicial.
+
 ## Recomendaciones para continuar
 
 1. Implementar una página o formulario para crear reportes de bugs.
