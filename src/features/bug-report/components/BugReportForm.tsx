@@ -56,7 +56,7 @@ export default function BugReportForm({
         placeholder="Descripción"
         value={form.description}
         onChange={handleChange}
-        className="border rounded p-2"
+        className="border rounded p-2 break-words"
       />
 
       <textarea
@@ -64,7 +64,7 @@ export default function BugReportForm({
         placeholder="Pasos para reproducir"
         value={form.steps}
         onChange={handleChange}
-        className="border rounded p-2"
+        className="border rounded p-2 break-words"
       />
 
       <textarea
@@ -72,7 +72,7 @@ export default function BugReportForm({
         placeholder="Resultado esperado"
         value={form.expectedResult}
         onChange={handleChange}
-        className="border rounded p-2"
+        className="border rounded p-2 break-words"
       />
 
       <textarea
@@ -80,7 +80,7 @@ export default function BugReportForm({
         placeholder="Resultado actual"
         value={form.actualResult}
         onChange={handleChange}
-        className="border rounded p-2"
+        className="border rounded p-2 break-words"
       />
 
       <input
