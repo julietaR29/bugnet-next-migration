@@ -1,7 +1,8 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+const APP_URL = "https://bugnet.vercel.app";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(APP_URL),
   title: {
     default: "BugNet - Generador de reportes de bugs",
     template: "%s | BugNet",
@@ -24,6 +26,33 @@ export const metadata: Metadata = {
   authors: [{ name: "Equipo BugNet" }],
   icons: { icon: "/favicon.ico" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "BugNet - Generador de reportes de bugs",
+    description:
+      "Describí el problema una sola vez. Obtené un reporte ordenado en Markdown, listo para pegar en tu issue.",
+    url: APP_URL,
+    siteName: "BugNet",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BugNet - Generador de reportes de bugs",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BugNet - Generador de reportes de bugs",
+    description: "Generá reportes de bugs en Markdown en segundos.",
+    images: ["/og-image.png"],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#08050a",
 };
 
 export default function RootLayout({
