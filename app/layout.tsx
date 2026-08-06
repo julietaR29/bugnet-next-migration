@@ -14,9 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BugNet - Generador de reportes de bugs",
+  title: {
+    default: "BugNet - Generador de reportes de bugs",
+    template: "%s | BugNet",
+  },
   description:
-    "Aplicación para generar reportes de bugs en formato Markdown.",
+    "Aplicación para generar reportes de bugs en formato Markdown, con severidad, prioridad y tono configurables.",
+  keywords: ["bug report", "reportes de bugs", "markdown", "QA", "testing", "Next.js"],
+  authors: [{ name: "Equipo BugNet" }],
+  icons: { icon: "/favicon.ico" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
