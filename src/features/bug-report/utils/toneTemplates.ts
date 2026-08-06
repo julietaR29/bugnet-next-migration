@@ -1,0 +1,162 @@
+export type HeaderVariant = 0 | 1 | 2 | 3 | 4 | 5;
+
+export const toneTemplates = {
+  description: {
+    formal: [
+      "## Descripción detallada de la anomalía",
+      "## Análisis del comportamiento observado",
+      "## Resultado actual minucioso",
+      "## Descripción técnica del problema",
+      "## Detalle exhaustivo de la incidencia",
+      "## Diagnóstico inicial del error",
+    ],
+    direct: [
+      "## Descripción",
+      "## Qué pasa",
+      "## Problema",
+      "## Detalle",
+      "## Descripción rápida",
+      "## Síntoma",
+    ],
+    detailed: [
+      "## Descripción detallada de la anomalía",
+      "## Análisis del comportamiento observado",
+      "## Resultado actual minucioso",
+      "## Descripción técnica ampliada",
+      "## Detalle completo del fallo",
+      "## Informe exhaustivo del comportamiento",
+    ],
+  },
+
+  steps: {
+    formal: [
+      "## Pasos para la reproducción",
+      "## Secuencia de ejecución",
+      "## Procedimiento para reproducir",
+      "## Pasos detallados",
+      "## Guía de reproducción",
+      "## Metodología de replicación",
+    ],
+    direct: [
+      "## Pasos",
+      "## Cómo reproducirlo",
+      "## Reproducción",
+      "## Pasos a seguir",
+      "## Instrucciones",
+      "## Acciones",
+    ],
+    detailed: [
+      "## Pasos detallados para la reproducción",
+      "## Secuencia completa de ejecución",
+      "## Procedimiento paso a paso para reproducir",
+      "## Guía exhaustiva de reproducción",
+      "## Metodología detallada de replicación",
+    ],
+  },
+
+  expectedResult: {
+    formal: [
+      "## Resultado esperado",
+      "## Comportamiento esperado",
+      "## Expectativa del sistema",
+      "## Resultado ideal",
+      "## Comportamiento deseado",
+      "## Especificación esperada",
+    ],
+    direct: [
+      "## Esperado",
+      "## Qué debería pasar",
+      "## Meta",
+      "## Comportamiento correcto",
+      "## Ideal",
+      "## Objetivo",
+    ],
+    detailed: [
+      "## Resultado esperado detallado",
+      "## Comportamiento esperado del sistema",
+      "## Expectativa técnica detallada",
+      "## Resultado ideal documentado",
+      "## Especificación detallada de diseño",
+    ],
+  },
+
+  actualResult: {
+    formal: [
+      "## Resultado obtenido",
+      "## Comportamiento actual",
+      "## Estado observado",
+      "## Resultado real",
+      "## Comportamiento registrado",
+      "## Evidencia actual",
+    ],
+    direct: [
+      "## Resultado actual",
+      "## Qué pasa realmente",
+      "## Realidad",
+      "## Estado",
+      "## Comportamiento actual",
+      "## Salida",
+    ],
+    detailed: [
+      "## Resultado obtenido detallado",
+      "## Comportamiento actual observado",
+      "## Estado real registrado",
+      "## Resultado efectivo documentado",
+      "## Evidencia técnica detallada",
+    ],
+  },
+
+  severityPriority: {
+    formal: [
+      "## Severidad y prioridad asignadas",
+      "## Clasificación del incidente",
+      "## Severidad y prioridad",
+      "## Evaluación de impacto",
+      "## Categorización del defecto",
+      "## Nivel de severidad y prioridad",
+    ],
+    direct: [
+      "## Severidad y prioridad",
+      "## Clasificación",
+      "## Severidad / prioridad",
+      "## Nivel",
+      "## Impacto",
+      "## Qué tan grave es",
+    ],
+    detailed: [
+      "## Severidad y prioridad detalladas",
+      "## Clasificación exhaustiva del incidente",
+      "## Análisis de severidad y prioridad",
+      "## Evaluación detallada de impacto",
+      "## Categorización ampliada del defecto",
+      "## Severidad y prioridad con justificación",
+    ],
+  },
+
+  environment: {
+    formal: [
+      "## Entorno de ejecución",
+      "## Ambiente del incidente",
+      "## Entorno donde se reproduce",
+      "## Contexto del entorno",
+      "## Ambiente de reproducción",
+      "## Plataforma de ejecución",
+    ],
+    direct: [
+      "## Entorno",
+      "## Dónde pasa",
+      "## Ambiente",
+      "## Plataforma",
+      "## Dónde se reproduce",
+      "## Sistema",
+    ],
+    detailed: [
+      "## Entorno de ejecución detallado",
+      "## Ambiente completo del incidente",
+      "## Entorno minucioso de reproducción",
+      "## Contexto ampliado del entorno",
+      "## Especificaciones del entorno",
+      "## Contexto de plataforma detallado",
+    ],
+  },
+};
