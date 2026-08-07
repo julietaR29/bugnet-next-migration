@@ -2,7 +2,10 @@ import BugReportGenerator from "@/src/features/bug-report/components/BugReportGe
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 py-16">
+    <main
+      id="main-content"
+      className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 py-16"
+    >
       <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-pink-400">
         BugNet
       </p>

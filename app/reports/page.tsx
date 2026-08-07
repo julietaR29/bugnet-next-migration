@@ -1,6 +1,6 @@
 export default function ReportsPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-16">
+    <main id="main-content" className="mx-auto w-full max-w-6xl flex-1 px-6 py-16">
       <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-pink-400">
         Reportes
       </p>
