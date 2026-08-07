@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ThemeToggle from "@/src/components/ThemeToggle";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,26 +26,31 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      suppressHydrationWarning
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6 p-4">
-            <div className="flex gap-6">
-              <Link href="/" className="text-sm font-medium text-gray-700 transition hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400">
+      <body className="min-h-full flex flex-col">
+        <header className="border-b border-white/10 bg-black/20">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+            <Link
+              href="/"
+              className="text-sm font-bold uppercase tracking-[0.25em] text-pink-400"
+            >
+              BugNet
+            </Link>
+
+            <div className="flex gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300">
+              <Link href="/" className="hover:text-pink-400">
                 Inicio
               </Link>
-              <Link href="/reports" className="text-sm font-medium text-gray-700 transition hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400">
+              <Link href="/reports" className="hover:text-pink-400">
                 Reportes
               </Link>
             </div>
-            <ThemeToggle />
           </nav>
         </header>
 
-        <div className="flex-1 bg-background text-foreground">{children}</div>
+        {children}
       </body>
     </html>
   );
