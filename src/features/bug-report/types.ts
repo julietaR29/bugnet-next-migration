@@ -17,3 +17,10 @@ export interface BugReportFormValues {
 }
 
 export type BugTemplate = "visual" | "functional" | "performance";
+
+export interface SavedBugReport {
+  id: string;
+  title: string;
+  markdown: string;
+  createdAt: string;
+}

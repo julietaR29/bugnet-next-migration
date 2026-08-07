@@ -15,6 +15,14 @@ const REQUIRED_FIELDS: (keyof BugReportFormValues)[] = [
   "actualResult",
 ];
 
+const labelClass = "block text-sm font-semibold text-zinc-200";
+const fieldClass =
+  "w-full rounded-lg border border-zinc-800 bg-black/35 px-3 py-2 text-sm text-zinc-100 shadow-inner transition placeholder:text-zinc-600 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-500/20";
+const textareaClass = `${fieldClass} break-words`;
+const selectClass =
+  "w-full rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2.5 text-sm font-medium text-zinc-100 shadow-inner transition hover:border-pink-400/50 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-500/20";
+const errorFieldClass = "border-red-500 focus:border-red-400 focus:ring-red-500/20";
+
 export default function BugReportForm({
   onSubmit,
 }: BugReportFormProps) {
@@ -61,15 +69,18 @@ export default function BugReportForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-xl border border-gray-200 bg-white/80 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/80">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-5 rounded-lg border border-white/10 bg-zinc-950/70 p-6 shadow-2xl shadow-black/30"
+    >
       {errors.length > 0 && (
-        <div className="rounded border border-red-300 bg-red-50 p-3 text-sm text-red-700 dark:border-red-700 dark:bg-red-950/40 dark:text-red-300">
+        <div className="rounded-lg border border-red-400/30 bg-red-950/40 p-3 text-sm text-red-200">
           Completá los campos obligatorios antes de generar el reporte.
         </div>
       )}
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="title" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <label htmlFor="title" className={labelClass}>
           Título *
         </label>
 
@@ -79,18 +90,16 @@ export default function BugReportForm({
           placeholder="Ej: Error al iniciar sesión"
           value={form.title}
           onChange={handleChange}
-          className={`w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 ${
-            errors.includes("title") ? "border-red-500" : ""
-          }`}
+          className={`${fieldClass} ${errors.includes("title") ? errorFieldClass : ""}`}
         />
 
         {errors.includes("title") && (
-          <p className="text-xs text-red-600">El título es obligatorio.</p>
+          <p className="text-xs text-red-300">El título es obligatorio.</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="description" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <label htmlFor="description" className={labelClass}>
           Descripción *
         </label>
 
@@ -101,18 +110,16 @@ export default function BugReportForm({
           placeholder="Ej: Al presionar el botón Guardar..."
           value={form.description}
           onChange={handleChange}
-          className={`w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm break-words transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 ${
-            errors.includes("description") ? "border-red-500" : ""
-          }`}
+          className={`${textareaClass} ${errors.includes("description") ? errorFieldClass : ""}`}
         />
 
         {errors.includes("description") && (
-          <p className="text-xs text-red-600">La descripción es obligatoria.</p>
+          <p className="text-xs text-red-300">La descripción es obligatoria.</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="steps" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <label htmlFor="steps" className={labelClass}>
           Pasos para reproducir *
         </label>
 
@@ -123,18 +130,16 @@ export default function BugReportForm({
           placeholder={"1.\n2.\n3."}
           value={form.steps}
           onChange={handleChange}
-          className={`w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm break-words transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 ${
-            errors.includes("steps") ? "border-red-500" : ""
-          }`}
+          className={`${textareaClass} ${errors.includes("steps") ? errorFieldClass : ""}`}
         />
 
         {errors.includes("steps") && (
-          <p className="text-xs text-red-600">Los pasos son obligatorios.</p>
+          <p className="text-xs text-red-300">Los pasos son obligatorios.</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="expectedResult" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <label htmlFor="expectedResult" className={labelClass}>
           Resultado esperado *
         </label>
 
@@ -145,18 +150,16 @@ export default function BugReportForm({
           placeholder="El sistema debería..."
           value={form.expectedResult}
           onChange={handleChange}
-          className={`w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm break-words transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 ${
-            errors.includes("expectedResult") ? "border-red-500" : ""
-          }`}
+          className={`${textareaClass} ${errors.includes("expectedResult") ? errorFieldClass : ""}`}
         />
 
         {errors.includes("expectedResult") && (
-          <p className="text-xs text-red-600">El resultado esperado es obligatorio.</p>
+          <p className="text-xs text-red-300">El resultado esperado es obligatorio.</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="actualResult" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <label htmlFor="actualResult" className={labelClass}>
           Resultado actual *
         </label>
 
@@ -167,18 +170,16 @@ export default function BugReportForm({
           placeholder="El botón no responde..."
           value={form.actualResult}
           onChange={handleChange}
-          className={`w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm break-words transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 ${
-            errors.includes("actualResult") ? "border-red-500" : ""
-          }`}
+          className={`${textareaClass} ${errors.includes("actualResult") ? errorFieldClass : ""}`}
         />
 
         {errors.includes("actualResult") && (
-          <p className="text-xs text-red-600">El resultado actual es obligatorio.</p>
+          <p className="text-xs text-red-300">El resultado actual es obligatorio.</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="environment" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <label htmlFor="environment" className={labelClass}>
           Entorno
         </label>
 
@@ -188,89 +189,93 @@ export default function BugReportForm({
           placeholder="Chrome 138 - Windows 11"
           value={form.environment}
           onChange={handleChange}
-          className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+          className={fieldClass}
         />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="severity" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
-          Severidad
-        </label>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="severity" className={labelClass}>
+            Severidad
+          </label>
 
-        <select
-          id="severity"
-          name="severity"
-          value={form.severity}
-          onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition duration-150 ease-in-out hover:border-blue-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
-        >
-          <option value="low">Baja</option>
-          <option value="medium">Media</option>
-          <option value="high">Alta</option>
-          <option value="critical">Crítica</option>
-        </select>
+          <select
+            id="severity"
+            name="severity"
+            value={form.severity}
+            onChange={handleChange}
+            className={selectClass}
+          >
+            <option value="low">Baja</option>
+            <option value="medium">Media</option>
+            <option value="high">Alta</option>
+            <option value="critical">Crítica</option>
+          </select>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="priority" className={labelClass}>
+            Prioridad
+          </label>
+
+          <select
+            id="priority"
+            name="priority"
+            value={form.priority}
+            onChange={handleChange}
+            className={selectClass}
+          >
+            <option value="low">Baja</option>
+            <option value="medium">Media</option>
+            <option value="high">Alta</option>
+          </select>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="priority" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
-          Prioridad
-        </label>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="tone" className={labelClass}>
+            Tono
+          </label>
 
-        <select
-          id="priority"
-          name="priority"
-          value={form.priority}
-          onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition duration-150 ease-in-out hover:border-blue-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
-        >
-          <option value="low">Baja</option>
-          <option value="medium">Media</option>
-          <option value="high">Alta</option>
-        </select>
-      </div>
+          <select
+            id="tone"
+            name="tone"
+            value={form.tone}
+            onChange={handleChange}
+            className={selectClass}
+          >
+            <option value="formal">Formal</option>
+            <option value="direct">Directo</option>
+            <option value="detailed">Detallado</option>
+          </select>
+        </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="tone" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
-          Tono
-        </label>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="headerVariant" className={labelClass}>
+            Variante del encabezado
+          </label>
 
-        <select
-          id="tone"
-          name="tone"
-          value={form.tone}
-          onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition duration-150 ease-in-out hover:border-blue-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
-        >
-          <option value="formal">Formal</option>
-          <option value="direct">Directo</option>
-          <option value="detailed">Detallado</option>
-        </select>
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <label htmlFor="headerVariant" className="block text-sm font-semibold text-gray-800 dark:text-gray-200">
-          Variante del encabezado
-        </label>
-
-        <select
-          id="headerVariant"
-          name="headerVariant"
-          value={form.headerVariant}
-          onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition duration-150 ease-in-out hover:border-blue-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
-        >
-          <option value={0}>Variante 1</option>
-          <option value={1}>Variante 2</option>
-          <option value={2}>Variante 3</option>
-          <option value={3}>Variante 4</option>
-          <option value={4}>Variante 5</option>
-          <option value={5}>Variante 6</option>
-        </select>
+          <select
+            id="headerVariant"
+            name="headerVariant"
+            value={form.headerVariant}
+            onChange={handleChange}
+            className={selectClass}
+          >
+            <option value={0}>Variante 1</option>
+            <option value={1}>Variante 2</option>
+            <option value={2}>Variante 3</option>
+            <option value={3}>Variante 4</option>
+            <option value={4}>Variante 5</option>
+            <option value={5}>Variante 6</option>
+          </select>
+        </div>
       </div>
 
       <button
         type="submit"
-        className="w-full rounded bg-blue-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
+        className="w-full rounded-lg bg-pink-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-pink-950/30 transition hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 focus:ring-offset-zinc-950"
       >
         Generar reporte
       </button>
