@@ -1,10 +1,27 @@
 # BugNet - Migración a Next.js
 
-Migración del proyecto BugNet, desarrollado originalmente con React + Vite, a Next.js 16 con App Router y TypeScript.
+Proyecto académico desarrollado como migración de **BugNet**, originalmente construido con React + Vite, hacia **Next.js 16** utilizando **App Router**, **React 19** y **TypeScript**.
 
 ## Descripción
 
-BugNet es una aplicación web para generar reportes de bugs en formato Markdown. La migración conserva la identidad visual del proyecto original y adapta su estructura al modelo de rutas y layout de Next.js.
+BugNet es una aplicación web que permite generar reportes de errores (bugs) en formato Markdown mediante un formulario interactivo. El usuario puede completar la información del incidente, obtener una vista previa del reporte generado y copiar o descargar el contenido para utilizarlo en plataformas de seguimiento de incidencias.
+
+La migración mantiene la funcionalidad principal del proyecto original y adapta su arquitectura al ecosistema de Next.js.
+
+## Funcionalidades
+
+Actualmente el proyecto incorpora las siguientes funcionalidades:
+
+- Generación de reportes de bugs en formato Markdown.
+- Formulario con validación de campos obligatorios.
+- Vista previa del reporte generado.
+- Copia del contenido al portapapeles.
+- Descarga del reporte en formato `.md`.
+- Persistencia de reportes mediante Local Storage.
+- Navegación entre las secciones principales de la aplicación.
+- Soporte para modo claro y modo oscuro.
+- Metadata básica para SEO mediante App Router.
+- Generación de `robots.txt` y `sitemap.xml`.
 
 ## Tecnologías utilizadas
 
@@ -16,64 +33,92 @@ BugNet es una aplicación web para generar reportes de bugs en formato Markdown.
 - ESLint
 - pnpm
 
-## Estructura del proyecto
+## Estructura principal del proyecto
 
-```txt
+```text
 app/
-  layout.tsx
-  page.tsx
-  reports/
-    page.tsx
-  robots.ts
-  sitemap.ts
+│── layout.tsx
+│── page.tsx
+│── globals.css
+│── reports/
+│   └── page.tsx
+│── robots.ts
+│── sitemap.ts
 
-features/
-  about/
-  bug-report/
-  polillas/
-
-shared/
-  components/
-  lib/
+src/
+├── components/
+│   └── ThemeToggle.tsx
+└── features/
+    └── bug-report/
+        ├── components/
+        ├── utils/
+        └── types.ts
 
 public/
 ```
-## Rutas iniciales
 
-- `/`: pantalla principal con el generador de reportes.
-- `/reports`: pantalla para reportes guardados.
+## Rutas disponibles
 
-## Comandos disponibles
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Generador de reportes de bugs |
+| `/reports` | Vista destinada a reportes guardados |
+
+## Instalación
 
 ```bash
 pnpm install
+```
+
+## Desarrollo
+
+```bash
 pnpm dev
+```
+
+## Compilación
+
+```bash
 pnpm build
+```
+
+## Verificación de calidad
+
+```bash
 pnpm lint
 ```
 
-## Notas de migración
+Se recomienda ejecutar `pnpm lint` y `pnpm build` antes de integrar nuevos cambios.
 
-- La ruta original `/reportes` se preparó como `/reports` en la estructura interna del proyecto.
-- En pantalla se mantiene el texto en español para conservar la experiencia del usuario.
-- La estructura `features/` y `shared/` replica la organización general del proyecto original.
-- Los componentes interactivos del generador usan `"use client"` porque manejan estado, eventos y APIs del navegador.
-- Se incorporaron metadatos, Open Graph, `robots.ts`, `sitemap.ts` y mejoras básicas de accesibilidad.
+## Características implementadas
 
-## Validación de calidad
+- Arquitectura basada en Next.js App Router.
+- Componentes desarrollados con React y TypeScript.
+- Generación dinámica de reportes Markdown.
+- Persistencia local mediante Local Storage.
+- Interfaz adaptada para modo claro y oscuro.
+- Navegación principal entre Inicio y Reportes.
+- Metadata y configuración SEO básica.
+- Soporte para `robots.ts` y `sitemap.ts`.
 
-- Se debe ejecutar `pnpm lint` antes de integrar cambios.
-- Se debe ejecutar `pnpm build` antes de la entrega final.
-- El README debe mantenerse sincronizado con la estructura real del repositorio.
+## Estado del proyecto
 
-## Checklist de entrega
+Al momento de esta entrega:
 
-- [x] Proyecto base en Next.js con App Router.
-- [x] Rutas `/` y `/reports`.
-- [x] Layout global y navegación.
-- [x] Estructura base `features/` y `shared`.
-- [x] Metadatos, Open Graph, sitemap y robots.
-- [x] Generador inicial de reportes en Markdown.
-- [ ] Persistencia o listado funcional de reportes guardados.
-- [ ] Comparación final contra el proyecto original.
-- [ ] Deploy final.
+- La aplicación compila correctamente.
+- El flujo principal de generación de reportes funciona correctamente.
+- La vista previa y la generación de Markdown se encuentran operativas.
+- La persistencia local de reportes está implementada.
+- El proyecto se encuentra preparado para futuras ampliaciones e integración de nuevas funcionalidades.
+
+## Integrantes del equipo
+
+- Julieta Rodríguez
+- Carolina Pally
+- Agustín Quintana
+- Guillermina Gatti
+- Lucas Laurido
+
+## Licencia
+
+Proyecto desarrollado con fines académicos.
