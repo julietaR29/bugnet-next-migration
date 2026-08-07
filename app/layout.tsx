@@ -1,7 +1,9 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const APP_URL = "https://bugnet.vercel.app";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +16,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BugNet - Generador de reportes de bugs",
+  metadataBase: new URL(APP_URL),
+  title: {
+    default: "BugNet - Generador de reportes de bugs",
+    template: "%s | BugNet",
+  },
   description:
-    "Aplicación para generar reportes de bugs en formato Markdown.",
+    "Aplicación para generar reportes de bugs en formato Markdown, con severidad, prioridad y tono configurables.",
+  keywords: ["bug report", "reportes de bugs", "markdown", "QA", "testing", "Next.js"],
+  authors: [{ name: "Equipo BugNet" }],
+  icons: { icon: "/favicon.ico" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "BugNet - Generador de reportes de bugs",
+    description:
+      "Describí el problema una sola vez. Obtené un reporte ordenado en Markdown, listo para pegar en tu issue.",
+    url: APP_URL,
+    siteName: "BugNet",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BugNet - Generador de reportes de bugs",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BugNet - Generador de reportes de bugs",
+    description: "Generá reportes de bugs en Markdown en segundos.",
+    images: ["/og-image.png"],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#08050a",
 };
 
 export default function RootLayout({
@@ -26,13 +63,26 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-pink-400 focus:px-3 focus:py-2 focus:text-black"
+        >
+          Saltar al contenido principal
+        </a>
+
         <header className="border-b border-white/10 bg-black/20">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-            <Link href="/" className="text-sm font-bold uppercase tracking-[0.25em] text-pink-400">
+          <nav
+            aria-label="Navegación principal"
+            className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
+          >
+            <Link
+              href="/"
+              className="text-sm font-bold uppercase tracking-[0.25em] text-pink-400"
+            >
               BugNet
             </Link>
 

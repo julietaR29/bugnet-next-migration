@@ -1,6 +1,11 @@
+import BugReportGenerator from "@/src/features/bug-report/components/BugReportGenerator";
+
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 py-20">
+    <main
+      id="main-content"
+      className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 py-16"
+    >
       <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-pink-400">
         BugNet
       </p>
@@ -13,6 +18,10 @@ export default function Home() {
         Describí el problema una sola vez. Obtené un reporte ordenado en
         Markdown, listo para pegar en tu issue.
       </p>
+
+      <section className="mt-10">
+        <BugReportGenerator />
+      </section>
     </main>
   );
 }
